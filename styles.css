@@ -1,0 +1,218 @@
+
+
+body {
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  background-image: url("../img/background.jpg");
+  background-repeat: repeat-y;
+  background-size: cover;
+  background-position: 50% 50%;
+/*  background-image: linear-gradient(to right, rgb(153, 149, 147) , rgb(218, 213, 210) );
+/*  background-image: url("./img/r2d2_wallpaper.jpg"); */
+ /* background: -webkit-gradient(linear, left top, left bottom, from(black), to(#2e2e2e)); 
+  background: linear-gradient(black, #0f0f0f);*/
+}
+
+.header {
+  height: 700px;
+  /* background-color: rgba(17, 17, 17, 0.596); */
+
+}
+
+ #userButton {
+  /* float: left; */
+  margin-left: 10px;
+  margin-top: 10px;
+  color: #dfdee4; 
+  background-color: rgba(192, 192, 192, 0);
+  /* font-family: 'Raleway', sans-serif; */
+  border: 0px;
+} 
+
+#cameraButton {
+  margin-top: -50px; 
+  margin-right: 10px; 
+  color: #1d1c20; 
+  background-color: silver;
+  /* font-family: 'Raleway', sans-serif; */
+  float: right;
+}
+
+.slogan {
+  font-size: 420%;
+  /* font-weight: bold; */
+  /* font-family: 'Raleway', sans-serif; */
+  line-height: 100%;
+  margin-top: 100px;
+  /* -webkit-animation: myfirst 100s 100;
+  animation: myfirst 100s 100; */
+  color: rgb(255, 255, 255);
+  /* text-shadow: 0px 0px 5px #ffffffc9; */
+  text-align: center;
+  padding-top: 5%;
+}
+
+.smallSlogan {
+  font-family: sans-serif;
+  font-weight: 100;
+  color: rgba(255, 255, 255, 0.555);
+  text-align: center;
+  margin-bottom: 150px;
+}
+
+#list {
+  /* text-align:center; */
+  color:aliceblue;
+  margin-bottom:500px;
+  padding-top: 195px;
+  margin-left: 50px;
+}
+
+ 
+
+
+/* #desc {
+  font-size: 200%;
+  color: rgba(255, 255, 255, 0.637);
+  text-shadow: 0px 0px 50px #0018f0c9;
+} */
+
+#cancelOrderButton {
+    visibility: hidden;
+}
+
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  margin-left: 10px;
+  background-color: rgb(233, 190, 190);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: rgb(248, 94, 94);
+  border-radius: 10px;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+i {
+  border: solid rgb(255, 255, 255);
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 10px;
+  font-size: 200%;
+}
+i:hover {
+  transition: color .9s;
+  border-color: rgb(153, 179, 250);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.479);
+  }
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  margin-bottom: 303px;
+}
+
+
+.table1 {
+  margin-top: 50px;
+  color: aliceblue;
+}
+
+/* Larger than mobile
+@media (max-width: 600px) {
+.slogan {
+  font-size: 400%;
+  }
+} */
+
+/* 
+.roomplan {
+  margin-left:auto;
+  margin-right: auto;
+  margin-bottom: 300px;
+}
+
+
+.bigImg .smallImg {
+  position: relative;
+  /* text-align: center; */
+  /* margin-top: 1000px; */
+  /* margin: 0 auto; */
+  /* margin-left:auto;
+  margin-right: auto; */
+/* } */
+
+.bigImg {
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 324px;
+}
+
+.smallImg {
+  position: relative;
+  margin-top: -725px;
+  margin-right: auto;
+  margin-left: auto;
+  /* height: 324px;  */
+  width: 150px;
+  /* display: none; */
+}
+
+
+.roomImages {
+    /* margin-left:auto;
+  margin-right: auto; */
+}
+
+/* smaller than tablet */
+@media (max-width: 900px) {
+  .bigImg img {
+    display: none;
+    /* transform: rotate(90deg);
+    width: 200px; */
+  }
+}
+
+#orders {
+  margin-top: 0px;
+}
+/*
+@media (min-width: 900px) {
+  .smallImg img {
+    display: none;
+  }
+   #orders {
+    margin-top: 1000px;
+  }
+} */
+

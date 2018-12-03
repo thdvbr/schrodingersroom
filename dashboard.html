@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>BeeR2D2</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/styles.css" />
+    <link href="../../static/css/aos.css" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+    <script type="text/javascript" src="../../static/js/main.js"></script>
+    <script src="../../static/js/aos.js"></script>
+
+    <link rel="icon" href="../../static/img/icon.png">
+
+    <link rel="stylesheet" type="text/css" href="../../static/vendor/skeleton/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="../../static/vendor/skeleton/skeleton.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+
+    <script>
+
+
+        function writeText(txt) {
+            document.getElementById("desc").innerHTML = txt;
+        }
+
+        function bedSelected() {
+            alert("You selected Bed");
+            addOrder("Bed")
+        }
+
+        function mortySelected() {
+            alert("You selected Morty");
+            addOrder("Morty")
+        }
+
+        function rickSelected() {
+            alert("You selected Rick");
+            addOrder("Rick")
+        }
+
+        function roomySelected() {
+            alert("You selected Roomy");
+            addOrder("Roomy")
+        }
+
+        function dontKnowSelected() {
+            alert("You selected DontKnow");
+        }
+
+        function codeTeamSelected() {
+            alert("You selected Code Team");
+            addOrder("Team")
+        }
+
+        function paperSelected() {
+            alert("You selected Paper");
+            addOrder("Paper")
+        }
+
+        function rockSelected() {
+            alert("You selected Rock");
+            addOrder("Rock")
+        }
+
+        function scissorsSelected() {
+            alert("You selected Scissors");
+            addOrder("Scissors")
+        }
+
+        function watchmenSelected() {
+            alert("You selected Watchmen");
+            addOrder("Watchmen")
+        }
+        var user = 'leonard.huesgen@code.berlin'
+
+        function addOrder(location) {
+
+                    tr = $('<tr/>');
+
+                            // tr.append("<td>" + "<button style='padding-left:5px; padding-right:5px; margin-right:-20px; border-radius: 50%; border:0px; font-size:110%; margin-bottom:0px;' onclick='cancelOrder()' id='cancelOrderButton;'>✖</button>" + "</td>");
+
+                            tr.append("<td></td>");
+
+                        tr.append("<td>" + location + "</td>");
+                        tr.append("<td>" + user + "</td>");
+                        tr.append("<td>"+'Leonard Hüsgen'+"</td>");
+
+                        $('.table1').append(tr);
+            $.ajax({
+                type: "POST",
+                "dataType": "json",
+                "url": "{{api_url}}/add-order/",
+                "data": { 'user': user, 'location': location, 'csrfmiddlewaretoken': '{{  csrf_token }}' },
+                "success": function (result) {
+                    console.log(result);
+                },
+                // success: function (data) {
+                //     response = data["status"];
+                //     message = data["message"];
+                // }
+
+            });
+        }
+
+        //   setInterval(getOrders, 2000);
+
+        function getOrders() {
+            //var Table = document.getElementById("table1");
+            //Table.innerHTML = "";
+            //document.getElementById("table1").deleteRow(0);
+            console.log("hihi");
+            var query = $('#query').valueOf();
+            $.ajax({
+                type: "get",
+                url: "{{api_url}}/get-order-list/",
+                success: function (data) {
+                    response = data["code"];
+                    data: query;
+                    //     data = data["data"];
+                    // var dataArray = data.orders;
+                    //    var dataArray = [];
+
+
+                    for (var i = 0; i < data.length; i++) {
+                        tr = $('<tr/>');
+                        if (data[i].user == user) {
+                            tr.append("<td>" + "<button style='padding-left:5px; padding-right:5px; margin-right:-20px; border-radius: 50%; border:0px; font-size:110%; margin-bottom:0px;' onclick='cancelOrder()' id='cancelOrderButton;'>✖</button>" + "</td>");
+                        } else {
+                            tr.append("<td></td>");
+                        }
+                        tr.append("<td>" + data[i].room + "</td>");
+                        tr.append("<td>" + data[i].user + "</td>");
+                        tr.append("<td>" + data[i].real_name + "</td>");
+
+                        $('.table1').append(tr);
+                    };
+                }
+            });
+        };
+
+        function cancelOrder() {
+            $.ajax({
+                type: "POST",
+                url: "{{api_url}}/cancel-order/",
+                "data": { 'user': user, 'csrfmiddlewaretoken': '{{  csrf_token }}' },
+                success: function (data) {
+                    response = data["status"];
+                    message = data["message"];
+                }
+            });
+            location.reload();
+        }
+
+        function changeUserButtonText() {
+            var button = document.getElementById("userButton");
+            if (username != "") {
+                button.innerText = username + " ▼";
+            } else {
+                button.innerText = "LOG IN";
+            }
+        }
+
+
+        window.onload = function () {
+            getOrders();
+            //             var user = firebase.auth().currentUser;
+            // if (user) {
+            //        changeUserButtonText()
+            // } else {
+            //        window.open('/login', '_self', false)
+            // }
+        };
+
+
+        function logout() {
+            firebase.auth().signOut().then(function () {
+                username = ""
+                changeUserButtonText();
+                window.reload()
+                // window.open('index.html', '_self', false)
+                // Sign-out successful.
+            }).catch(function (error) {
+                // An error happened.
+            });
+        }
+
+// $('a[href*=#]:not([href=#])').click(function() {
+//     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
+//         || location.hostname == this.hostname) {
+
+//         var target = $(this.hash);
+//         target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+//            if (target.length) {
+//              $('html,body').animate({
+//                  scrollTop: target.offset().top
+//             }, 1000);
+//             return false;
+//         }
+//     }
+// });
+
+
+
+    </script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="dropdown">
+            <button onclick="dropdownPressed()" id="userButton" class="dropbtn">Log In</button>
+            <div id="myDropdown" class="dropdown-content">
+                <a onclick="logout();">Logout</a>
+                <!-- <a href="#">Link 2</a> -->
+            </div>
+        </div>
+        <!-- <div style="text-align:right;">
+            <button id="cameraButton" onclick="window.location.href='./camera.html'">
+                Camera View
+            </button>
+        </div> -->
+
+        <div class="slogan" data-aos="zoom-in" data-aos-duration="2000">
+            BeeR2D2
+        </div>
+        <div class="smallSlogan" data-aos="fade-zoom-in" data-aos-easing="ease-in-sine" data-aos-duration="3000">
+            <p>Cool moves for you!</p>
+        </div>
+        <!-- <p style="margin-left: auto; margin-right: auto;"><i class="arrow down"></i></p> -->
+        <div style="margin-left: auto; margin-right: auto; text-align: center;">
+            <a href="#list"><i class="arrow down" id="arrow"></i></a>
+        </div>
+
+
+        <ul id="list" style="list-style: none;">
+            <li data-aos="fade-down-right"><a href="#map-anchor" style="text-decoration:none;"><Map>Map</Map></a></li>
+            <li data-aos="fade-down-left"><a href="#orders" style="text-decoration:none;"><Map>Orders</Map></a></li>
+            <li data-aos="fade-up-right">About</li>
+            <li data-aos="fade-up-left">Terms</li>
+        </ul>
+        <!--
+            <button onclick=getOrders() style="margin-top: 10px; margin-right: 10px; color: #1d1c20; background-color: silver;">Get
+                Orders</button>
+-->
+        <!-- <script src="https://unpkg.com/aos@next/dist/aos.js"></script> -->
+        <div id="map-anchor" style="margin-top:-160px; height: 160px;"></div>
+        <!-- Campus Map -->
+        <div class="roomplan" data-aos="flip-down" data-aos-duration="1000">
+            <!-- <p class="movableText">morty</p> -->
+            <div class="roomImages">
+                <div class="bigImg">
+                    <img src="../../static/img/map_light.png" id="roomNine" class="mapper noborder icolorff3432" alt="campusFloor"
+                        usemap="#campusFloor">
+                    <map name="campusFloor">
+                        <!--Chill Area 1-->
+                        <area shape="rect" coords="830,21,896,45" onclick="bedSelected()" alt="bed">
+                        <!--Morty-->
+                        <area shape="rect" coords="784,144,830,193" onclick="mortySelected()" alt="morty" id="morty">
+                        <!--Rick-->
+                        <area shape="rect" coords="784,95,830,144" onclick="rickSelected()" alt="rick">
+                        <!--Roomy McRoomface-->
+                        <area shape="rect" coords="784,30,830,95" onclick="roomySelected()" alt="roomy">
+                        <!--CODE TEAM-->
+                        <area shape="rect" coords="453,255,592,317" onclick="codeTeamSelected()" alt="codeTeam">
+                        <!--Paper-->
+                        <area shape="rect" coords="195,260,308,317" onclick="paperSelected()" alt="paper">
+                        <!--Rock-->
+                        <area shape="rect" coords="85,260,195,317" onclick="rockSelected()" alt="rock">
+                        <!--Scisscors-->
+                        <area shape="rect" coords="308,255,453,317" onclick="scissorsSelected()" alt="scissors">
+                        <!--Watchmen-->
+                        <area shape="rect" coords="44,260,85,317" onclick="watchmenSelected()" alt="watchmen">
+                        <!---->
+                    </map>
+                </div>
+                <!-- <div class="smallImg">
+                    <img src="../../static/img/roomplanSmall.png" alt="roomplanSmall" class="mapper noborder icolorff3432"
+                        alt="smallCampusFloor" usemap="#smallCampusFloor">
+                    <map name="smallCampusFloor">
+                        Watchmen
+                        <area shape="rect" coords="3,12,19,24" onclick="watchmenSelected()" alt="watchmen">
+
+                        Chill Area 1
+                        <area shape="rect" coords="830,21,896,45" onclick="bedSelected()" alt="bed">
+                        Morty
+                        <area shape="rect" coords="784,144,830,193" onclick="mortySelected()" alt="morty" id="morty">
+                        Rick
+                        <area shape="rect" coords="784,95,830,144" onclick="rickSelected()" alt="rick">
+                        Roomy McRoomface
+                        <area shape="rect" coords="784,30,830,95" onclick="roomySelected()" alt="roomy">
+                        CODE TEAM
+                        <area shape="rect" coords="453,255,592,317" onclick="codeTeamSelected()" alt="codeTeam">
+                        Paper
+                        <area shape="rect" coords="195,260,308,317" onclick="paperSelected()" alt="paper">
+                        Rock
+                        <area shape="rect" coords="85,260,195,317" onclick="rockSelected()" alt="rock">
+                        Scisscors
+                        <area shape="rect" coords="308,255,453,317" onclick="scissorsSelected()" alt="scissors">
+                        
+                    </map>
+                </div> -->
+            </div>
+            <!-- <p id="desc">Select room</p> -->
+        </div>
+        <div class="container">
+            <!--    <a>{{username}}</a> -->
+            <!-- <h2 style="text-align:center; color:aliceblue;">Current Orders</h2> -->
+            <h2 style="text-align:center; color:aliceblue;" id="orders">Orders</h2>
+            <table class="table1" align="center">
+                <tr>
+                    <th></th>
+                    <th>Room</th>
+                    <th>Email / Slack-ID</th>
+                    <th>Name</th>
+                </tr>
+            </table>
+        </div>
+    </header>
+
+    <!-- <script>
+        var roomplan = getElementsByClassName("roomplan")
+
+        function moveText() {
+            var movableTextElements = morty.getElementsByClassName("movableText");
+            for (var i = 0; i < movableTextElements.length; i++) {
+                var textElement = movableTextElements[i];
+                hypeDocument.setElementProperty(textElement, 'opacity', 0.0);
+            }
+        }
+
+        function shit() {
+        // make sure the text is clipped so it isn't outside boundaries of group
+        morty.style["overflow"] = "hidden";
+
+        // set the element to visible
+        var movableTextElements = morty.getElementsByClassName("movableText");
+        for (var i = 0; i < movableTextElements.length; i++) {
+            var textElement = movableTextElements[i];
+            hypeDocument.setElementProperty(textElement, 'opacity', 1.0);
+            textElement.style["display"] = "block";
+
+            // make sure the text element movement won't interfere with on move positions
+            textElement.style["pointer-events"] = "none";
+            textElement.style["pointerEvents"] = "none";
+        }
+
+        // add a hook for on mouse move
+        if (roomplan.onmousemove == null) {
+            roomplan.onmousemove = (function (evt) {
+                var movableTextElements = element.getElementsByClassName("movableText");
+                for (var i = 0; i < movableTextElements.length; i++) {
+                    hypeDocument.setElementProperty(textElement, 'left', evt.offsetX);
+                    hypeDocument.setElementProperty(textElement, 'top', evt.offsetY);
+                }
+            });
+        }
+
+        // trigger position change for the initial mouse over
+        element.onmousemove(event);
+
+        }
+    </script> -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../../static/vendor/mapper/wz_jsgraphics.js"></script>
+    <script type="text/javascript" src="../../static/vendor/mapper/mapper.js"></script>
+    <!--
+<script>
+    
+  // Initialize Firebase
+  // TODO: Replace with your project's customized code snippet
+  var config = {
+    apiKey: "AIzaSyBvwprYXi182UzC0yXiXJXgxXkZ_e68Li0",
+    authDomain: "beer2d2-1c27e.firebaseapp.com",
+    databaseURL: "https://beer2d2-1c27e.firebaseio.com",
+    projectId: "beer2d2-1c27e",
+    storageBucket: "",
+    messagingSenderId: "109673741253"
+  };
+  firebase.initializeApp(config);
+
+  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+});
+
+firebase.auth().onAuthStateChanged((user)=>{
+     const userProfile = firebase.auth().currentUser;
+     if(!user){
+        window.location.replace("/login.html");
+     }
+})
+</script>
+-->
+    <!-- Add additional services that you want to use -->
+</body>
+
+<script>
+    AOS.init();
+</script>
+</html>
