@@ -23,7 +23,7 @@ p{
 
 
 #map{
-    margin-top: 50px;
+    margin-top: 100px;
 }
 #header{
     height: 100px;
@@ -48,16 +48,17 @@ nav{
     font-size: 150%;
     
 } */
-.wrap{
-    padding: 100px;
-    background-color: #68d9a8
+#wrap{
+    padding: 150px;
+    background-color: #68d9a8;
+    margin-bottom: -120px;
 
 }
-
+/*
 #top_menu{
     padding: 20px;
     display: inline-block;
-}
+}*/
 
 
 #noMeeting-rooms{
@@ -173,7 +174,8 @@ nav{
 
   #about{
       background: #fff;
-      padding: 100px;
+      padding: 150px;
+   
   }
 
   .nav-item {
