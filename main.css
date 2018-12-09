@@ -8,7 +8,7 @@ h1, nav {
 }
 
 body {
-    background-color: lightblue;
+    background-color: 	#6ddfad;
     font-family: "Raleway", sans-serifs;
     
    
@@ -73,17 +73,23 @@ nav{
     background-color: #4285f4;
    
 }
+.color-indicator{
 
+    margin: 20px;
+
+}
 .square{
     width: 20px;
     height: 20px;
     border-radius:5px;
-    margin: 10px;
-    float: left;
+    border: solid #eaeff3;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 7px;
 }
 
-table{
-    margin-top: 30px;
-    color:#344357;
+.text{
+    margin-left: 1px;
+    vertical-align: middle;
+    color: #344357;
 }
-

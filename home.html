@@ -143,6 +143,15 @@
             </g>
         </svg>
     </div>
+    <div class = "color-indicator">
+        <ul style="list-style-type:none">
+            <li><div class="square" id="box1"></div><span class ="text">: Booked & Occupied</span></li>
+            <li><div class="square" id="box2"></div><span class = "text">: Booked & Empty</span></li>
+            <li><div class="square" id="box3"></div><span class = "text">: Not Booked & Occupied</span></li>
+            <li><div class="square" id="box4"></div><span class = "text">: Free</span></li>
+        </ul>
+            
+        <!---
     <table>
        
         <tr>
@@ -161,14 +170,16 @@
                 <td><div class="square" id="box4"></div></td>
                 <td>: Free</td>
         </tr>
-    </table>
+    </table> -->
+    </div>
+
     
 </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
     type="text/javascript"></script>
 <script src="rooms.js" type="text/javascript"></script>
-<script>
+<script> //change room color with booking status
         roomColor = function(roomState){
         if(roomState == "booked"){
             return "#ea4335";
@@ -176,7 +187,7 @@
             return "#4285f4";
         }
     }
-    
+        
         rooms.forEach(function(room){
         var roomName = room.name;
         var roomState = room.status;
