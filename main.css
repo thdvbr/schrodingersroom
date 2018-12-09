@@ -1,43 +1,57 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,600|Roboto");
+
 *{
     margin: 0px;
     padding: 0px;
 }
-
+/*
 h1, nav {
     display:inline-block;
-}
+} */
 
 body {
-    background-color: 	#6ddfad;
-    font-family: "Raleway", sans-serifs;
+    background: 	#68d9a8;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
     
    
 }
 
+p{
+    color:#344357;
+}
+
+
+#map{
+    margin-top: 50px;
+}
 #header{
     height: 100px;
-    background-color: white;
+    background-color: #eaeff3;
 
 }
 
 h1{
-    color: #344357;
-    text-align: left;
-    font-size:300%;
+    color:  #344357;
+    text-align: center;
     line-height:60px;
     padding: 20px;
     margin:20px
 }
+
 a{
     text-decoration:none;
 }
+/*
 nav{
     color: #344357;
     font-size: 150%;
     
-}
+} */
 .wrap{
     padding: 100px;
+    background-color: #68d9a8
+
 }
 
 #top_menu{
@@ -93,3 +107,78 @@ nav{
     vertical-align: middle;
     color: #344357;
 }
+  /* navbar text */
+  .navbar-expand-md .navbar-nav .nav-link {
+    color: #344357;
+    font-size: 20px;
+    padding: 5px 0px;
+    margin-left: 30px;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    margin-top: 20px;
+  }
+  
+  /* line under the nav */
+  .navbar-expand-md .navbar-nav .nav-link:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #4285f4;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    transition: 0.3s;
+  }
+  
+  .navbar-expand-md .navbar-nav .active::before,
+  .navbar-expand-md .navbar-nav .nav-link:hover::before {
+    width: 100%;
+  }
+  
+  .navbar-brand {
+    color: #fff;
+  }
+  
+  .navbar-expand-md .navbar-nav .nav-link:focus,
+  .navbar-expand-md .navbar-nav .nav-link:hover,
+  .navbar-expand-md .navbar-nav .nav-link:hover:before {
+    color: #4285f4;
+  }
+  
+  .navbar-expand-md .navbar-nav .active > .nav-link,
+  .navbar-expand-md .navbar-nav .nav-link.active,
+  .navbar-expand-md .navbar-nav .nav-link.active:before,
+  .navbar-expand-md .navbar-nav .nav-link.open,
+  .navbar-expand-md .navbar-nav .open > .nav-link {
+    color: #ffffff;
+  }
+  
+ 
+
+  .hero-area-2, .overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background-color: #fff;
+    
+  }
+
+  .navbar-brand{
+      margin-top: 10px;
+  }
+
+  #about{
+      background: #fff;
+      padding: 100px;
+  }
+
+  .nav-item {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }

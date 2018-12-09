@@ -5,16 +5,37 @@
     <meta charset="utf-8" />
     <title> Schrödinger's Room </title>
     <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="animate.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 
 </head>
 <body>
 
-    <header id="header">
-            <h1> Schrödinger's Room </h1>
-            <nav id="top_menu">
+    <header id="header" class="hero-area-2">
+            <!--<h1> SchrödingersRoom </h1>-->
+<!--           <nav id="top_menu">
                 <a href="">How it works</a>
-            </nav>
+            </nav>--> 
+            <div class="overlay"></div>
+            <nav class="navbar navbar-expand-md bg-inverse fixed-top scrolling-navbar">
+                <div class="container">
+                  <a href="home.html" class="navbar-brand"><img src="SR_logo.png" alt="SchrödingersRoom" width="50px" height="50px"></a>  
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="lni-menu"></i>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto w-100 justify-content-end">
+                      <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#map">Map</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#about">About</a>
+                      </li>  
+                    </ul>
+                  </div>
+                </div>
+              </nav>  
     </header> 
     <div class="wrap">
     <div id="map">
@@ -150,31 +171,28 @@
             <li><div class="square" id="box3"></div><span class = "text">: Not Booked & Occupied</span></li>
             <li><div class="square" id="box4"></div><span class = "text">: Free</span></li>
         </ul>
-            
-        <!---
-    <table>
-       
-        <tr>
-            <td><div class="square" id="box1"></div></td>
-            <td>: Booked & Occupied</td>
-        </tr>
-        <tr>
-            <td><div class="square" id="box2"></div></td>
-                <td>: Booked & Empty</td>
-        </tr>
-        <tr>
-                <td><div class="square" id="box3"></div></td>
-                <td>: Not booked & Occupied</td>
-        </tr>
-        <tr>
-                <td><div class="square" id="box4"></div></td>
-                <td>: Free</td>
-        </tr>
-    </table> -->
     </div>
-
-    
 </div>
+<div id="about" ><h3>An oft joked about idea, the Schrödinger's Cat paradox is in fact scientific satire at its finest. 
+    </h3><br>
+    <p>Imagine a cat is placed inside a concealed box. Now imagine there's also a flask with a radioactive element in there. Now, ignoring the cruelty of this hypothesis, imagine that within one hour, the atoms of that element might decay and save the cat, but they also may not and thus kill the cat. Unless we open the box, a commonly held interpretation of quantum mechanics known as the Copenhagen interpretation would imply that the cat is, in this case, simultaneously both dead and alive — which is, well, a problematic assumption. And a half-dead cat joke was Schrödinger's response to this problem.
+    </p>
+    <br>
+    <h3>Booking meeting rooms at CODE campus sometimes feels like opening Schrödinger's Cat's boxes.
+    </h3><br>
+    <p>It is a common occurrence for rooms to be marked as reserved in our current booking system, yet in real life to be unoccupied and wasting space that could otherwise be productively put to good use.
+        This recurs often enough to leave us guessing that, much like in the Copenhagen interpretation, using this booking system means that there is always a 50% chance a room will be busy and 50% chance it will be empty, unless the room is observed.
+    </p><br>
+    <h3>This is why we have developed SchrödingersRoom. We let the cat out of the box.
+    </h3><br>
+    <p>Using motion detection sensors integrated with Wi-Fi, our SchrödingersRoom tools transmit live updates from the meeting rooms to your personal device, so you'll always know whether that room that was already reserved by someone is actually occupied. 
+        The interactive campus map on our website is easy to browse, and its colour-coded display categorises rooms as "free", "reserved and in use", "reserved but not in use" or "reserved and in use but on a break". Feel free to choose the option to receive these updates via Slack if you need quick and ready information.
+        And finally, stop wandering and wondering. We'll guide you to the free spaces.
+    </p>
+
+
+</div>
+
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
     type="text/javascript"></script>
