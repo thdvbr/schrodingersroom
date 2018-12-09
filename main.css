@@ -1,0 +1,89 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+h1, nav {
+    display:inline-block;
+}
+
+body {
+    background-color: lightblue;
+    font-family: "Raleway", sans-serifs;
+    
+   
+}
+
+#header{
+    height: 100px;
+    background-color: white;
+
+}
+
+h1{
+    color: #344357;
+    text-align: left;
+    font-size:300%;
+    line-height:60px;
+    padding: 20px;
+    margin:20px
+}
+a{
+    text-decoration:none;
+}
+nav{
+    color: #344357;
+    font-size: 150%;
+    
+}
+.wrap{
+    padding: 100px;
+}
+
+#top_menu{
+    padding: 20px;
+    display: inline-block;
+}
+
+
+#noMeeting-rooms{
+    fill:#344357;
+}
+/*
+#meeting-rooms{
+    fill:#ea4335;
+}  */
+
+
+#box1{
+    background-color:#ea4335;
+ 
+    
+}
+#box2{
+    background-color:#fbbc05;
+ 
+}
+
+#box3{
+    background-color:#34a853;
+   
+}
+#box4{
+    background-color: #4285f4;
+   
+}
+
+.square{
+    width: 20px;
+    height: 20px;
+    border-radius:5px;
+    margin: 10px;
+    float: left;
+}
+
+table{
+    margin-top: 30px;
+    color:#344357;
+}
+

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg width="100%" height="100%" viewBox="0 0 1528 581" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <path id="WHITESPACE_1" fill="white" d="M338.219,499.825l0,-96.083l605.503,0l0.439,172.998l-58.012,0l-1.688,-126.965l-138.334,0l0,50.05l-407.908,0" style="fill:#eaeff3;stroke:#eaeff3;stroke-width:5.25px;" />
+    <path id="WHITESPACE_2" d="M1523.32,340.911l0,97.875l-182.313,0l0,137.954l-222.516,0l0,-172.998l226.069,0l0,-62.831" style="fill:#eaeff3;stroke:#eaeff3;stroke-width:5.25px;" />
+    <g id="ROOMS">
+        <rect x="944.161" y="403.742" width="174.329" height="172.998" style="fill:#354357;" /><text x="957.065px" y="507.534px" style="font-family:'Avenir-Black', 'Avenir', sans-serif;font-weight:800;font-size:36px;fill:#eaeff3;">K<tspan x="981.105px 990.96px 1010.07px 1032.88px 1058.15px 1079.13px " y="507.534px 507.534px 507.534px 507.534px 507.534px 507.534px ">ITCHEN</tspan></text>
+        <rect x="944.161" y="403.742" width="174.329" height="172.998" style="fill:none;stroke:#eaeff3;stroke-width:5.25px;stroke-linecap:round;" />
+        <rect x="944.161" y="343.199" width="87.603" height="60.543" style="fill:#354357;" /><text x="951.603px" y="380.953px" style="font-family:'Avenir-Black', 'Avenir', sans-serif;font-weight:800;font-size:21.136px;fill:#eaeff3;">M<tspan x="970.057px 986.321px 998.636px 1009.86px " y="380.953px 380.953px 380.953px 380.953px ">ORTY</tspan></text>
+        <rect x="944.161" y="343.199" width="87.603" height="60.543" style="fill:none;stroke:#eaeff3;stroke-width:5.25px;stroke-linecap:round;" />
+        <path d="M1119.15,85.745l-87.603,19.703l0,298.294l87.603,0l0,-317.997Z" style="fill:#354357;" />
+        <clipPath id="_clip1">
+            <path d="M1119.15,85.745l-87.603,19.703l0,298.294l87.603,0l0,-317.997Z" />
+        </clipPath>
+        <g clip-path="url(#_clip1)">
+            <g transform="matrix(4.92894e-17,-0.804957,0.870339,5.32929e-17,279.206,476.647)"><text x="225.756px" y="907.115px" style="font-family:'Avenir-Black', 'Avenir', sans-serif;font-weight:800;font-size:34.469px;fill:#eaeff3;">HALL<tspan x="310.654px " y="907.115px ">Y</tspan></text><text x="162.229px" y="941.585px" style="font-family:'Avenir-Black', 'Avenir', sans-serif;font-weight:800;font-size:34.469px;fill:#eaeff3;">MCHALLF<tspan x="325.648px 351.19px " y="941.585px 941.585px ">AC</tspan>E</text></g>
+        </g>
+        <path d="M1119.15,85.745l-87.603,19.703l0,298.294l87.603,0l0,-317.997Z" style="fill:none;stroke:#eaeff3;stroke-width:5.25px;stroke-linecap:round;" />
+        <rect x="1344.56" y="280.369" width="87.603" height="60.543" style="fill:#354357;" /><text x="1349.57px" y="318.122px" style="font-family:'Avenir-Black', 'Avenir', sans-serif;font-weight:800;font-size:15px;fill:#eaeff3;">6<tspan x="1357.79px 1361.89px 1374.99px 1379.1px 1390.4px 1400.68px 1408.65px 1417.39px " y="318.122px 318.122px 318.122px 318.122px 318.122px 318.122px 318.122px 318.122px "> MINUTES</tspan></text>
+        <rect x="1344.56" y="280.369" width="87.603" height="60.543" style="fill:none;stroke:#eaeff3;stroke-width:5.25px;stroke-linecap:round;" />
+        <rect x="1344.52" y="219.826" width="87.603" height="60.543" style="fill:#354357;" /><text x="1351.6px" y="257.341px" style="font-family:'Avenir-Black', 'Avenir', sans-serif;font-weight:800;font-size:16.5px;fill:#eaeff3;">C<tspan x="1362.06px 1374.75px 1386.62px 1399.06px 1403.58px 1412.34px " y="257.341px 257.341px 257.341px 257.341px 257.341px 257.341px ">OGNITO</tspan></text>
+        <rect x="1344.52" y="219.826" width="87.603" height="60.543" style="fill:none;stroke:#eaeff3;stroke-width:5.25px;stroke-linecap:round;" />
+        <rect x="1344.56" y="159.283" width="87.603" height="60.543" style="fill:#354357;" /><text x="1351.77px" y="195.395px" style="font-family:'Avenir-Black', 'Avenir', sans-serif;font-weight:800;font-size:16.5px;fill:#eaeff3;">N<tspan x="1364.21px 1374.1px 1388.51px 1398.12px 1408.01px 1412.53px " y="195.395px 195.395px 195.395px 195.395px 195.395px 195.395px ">YMERIA</tspan></text>
+        <rect x="1344.56" y="159.283" width="87.603" height="60.543" style="fill:none;stroke:#eaeff3;stroke-width:5.25px;stroke-linecap:round;" />
+        <path d="M1344.56,41.404l87.604,-20.39l0,138.269l-87.604,0l0,-117.879" style="fill:#354357;" />
+        <clipPath id="_clip2">
+            <path d="M1344.56,41.404l87.604,-20.39l0,138.269l-87.604,0l0,-117.879" />
+        </clipPath>
+        <g clip-path="url(#_clip2)">
+            <g transform="matrix(4.44848e-17,-0.726492,0.785501,4.80981e-17,673.274,298.955)"><text x="209.249px" y="907.115px" style="font-family:'Avenir-Black', 'Avenir', sans-serif;font-weight:800;font-size:20.92px;fill:#eaeff3;">AMY F<tspan x="275.503px 291.005px " y="907.115px 907.115px ">AR</tspan>RAH</text><text x="235.022px" y="928.035px" style="font-family:'Avenir-Black', 'Avenir', sans-serif;font-weight:800;font-size:20.92px;fill:#eaeff3;">FOWLER</text></g>
+        </g>
+        <path d="M1344.56,41.404l87.604,-20.39l0,138.269l-87.604,0l0,-117.879" style="fill:none;stroke:#eaeff3;stroke-width:5.25px;" />
+        <path d="M1432.16,340.911l-0.043,-319.897l91.199,-17.302l0,337.199l-91.156,0Z" style="fill:#354357;" />
+        <clipPath id="_clip3">
+            <path d="M1432.16,340.911l-0.043,-319.897l91.199,-17.302l0,337.199l-91.156,0Z" />
+        </clipPath>
+        <g clip-path="url(#_clip3)">
+            <g transform="matrix(6.12323e-17,-1,1,6.12323e-17,390.556,1165.65)"><text x="927.364px" y="1100.09px" style="font-family:'Avenir-Black', 'Avenir', sans-serif;font-weight:800;font-size:36.45px;fill:#eaeff3;">S<tspan x="946.715px 965.458px 990.439px 1013.53px " y="1100.09px 1100.09px 1100.09px 1100.09px ">PACE</tspan></text></g>
+        </g>
+        <path d="M1432.16,340.911l-0.043,-319.897l91.199,-17.302l0,337.199l-91.156,0Z" style="fill:none;stroke:#eaeff3;stroke-width:5.25px;" />
+        <rect x="943.722" y="282.657" width="87.603" height="60.543" style="fill:#354357;" /><text x="964.104px" y="320.41px" style="font-family:'Avenir-Black', 'Avenir', sans-serif;font-weight:800;font-size:21.136px;fill:#eaeff3;">R<tspan x="976.771px 982.558px 995.948px " y="320.41px 320.41px 320.41px ">ICK</tspan></text>
+        <rect x="943.722" y="282.657" width="87.603" height="60.543" style="fill:none;stroke:#eaeff3;stroke-width:5.25px;stroke-linecap:round;" />
+        <rect x="3.712" y="499.825" width="167.253" height="76.915" style="fill:#354357;" />
+        <clipPath id="_clip4">
+            <rect x="3.712" y="499.825" width="167.253" height="76.915" />
+        </clipPath>
+        <g clip-path="url(#_clip4)"><text x="27.88px" y="551.16px" style="font-family:'Avenir-Black', 'Avenir', sans-serif;font-weight:800;font-size:36.45px;fill:#eaeff3;">P<tspan x="48.146px 75.155px " y="551.16px 551.16px ">AP</tspan>ER</text></g>
+        <rect x="3.712" y="499.825" width="167.253" height="76.915" style="fill:none;stroke:#eaeff3;stroke-width:5.25px;stroke-linecap:round;" />
+        <rect x="170.966" y="499.825" width="167.253" height="76.915" style="fill:#354357;" /><text x="200.444px" y="551.815px" style="font-family:'Avenir-Black', 'Avenir', sans-serif;font-weight:800;font-size:36.378px;fill:#eaeff3;">ROCK</text>
+        <rect x="170.966" y="499.825" width="167.253" height="76.915" style="fill:none;stroke:#eaeff3;stroke-width:5.25px;stroke-linecap:round;" />
+        <rect x="338.219" y="499.825" width="167.253" height="76.915" style="fill:#354357;" /><text x="350.866px" y="549.557px" style="font-family:'Avenir-Black', 'Avenir', sans-serif;font-weight:800;font-size:30px;fill:#eaeff3;">SCISSORS</text>
+        <rect x="338.219" y="499.825" width="167.253" height="76.915" style="fill:none;stroke:#eaeff3;stroke-width:5.25px;stroke-linecap:round;" />
+        <rect x="505.473" y="499.825" width="167.253" height="76.915" style="fill:#354357;" />
+        <g transform="matrix(0.75,0,0,0.75,379.57,-146.049)"><text x="221.593px" y="907.115px" style="font-family:'Avenir-Black', 'Avenir', sans-serif;font-weight:800;font-size:40px;fill:#eaeff3;">TEAM</text><text x="214.253px" y="947.115px" style="font-family:'Avenir-Black', 'Avenir', sans-serif;font-weight:800;font-size:40px;fill:#eaeff3;">ROOM</text></g>
+        <rect x="505.473" y="499.825" width="167.253" height="76.915" style="fill:none;stroke:#eaeff3;stroke-width:5.25px;stroke-linecap:round;" />
+        <rect x="672.726" y="499.825" width="73.401" height="76.915" style="fill:#354357;" />
+        <g transform="matrix(6.12323e-17,-1,1,6.12323e-17,-322.567,990.868)"><text x="421.209px" y="1037.94px" style="font-family:'Avenir-Black', 'Avenir', sans-serif;font-weight:800;font-size:16.811px;fill:#eaeff3;">LIZARD</text></g>
+        <rect x="672.726" y="499.825" width="73.401" height="76.915" style="fill:none;stroke:#eaeff3;stroke-width:5.25px;stroke-linecap:round;" />
+        <rect x="746.127" y="449.775" width="138.334" height="126.965" style="fill:#354357;" /><text x="784.858px" y="530.221px" style="font-family:'Avenir-Black', 'Avenir', sans-serif;font-weight:800;font-size:36.45px;fill:#eaeff3;">WC</text>
+        <rect x="746.127" y="449.775" width="138.334" height="126.965" style="fill:none;stroke:#eaeff3;stroke-width:5.25px;stroke-linecap:round;" />
+        <rect x="1341.01" y="438.786" width="182.314" height="137.954" style="fill:#354357;" /><text x="1401.68px" y="526.739px" style="font-family:'Avenir-Black', 'Avenir', sans-serif;font-weight:800;font-size:36.45px;fill:#eaeff3;">WC</text>
+        <rect x="1341.01" y="438.786" width="182.314" height="137.954" style="fill:none;stroke:#eaeff3;stroke-width:5.25px;stroke-linecap:round;" />
+        <path d="M3.712,497.764l0,-47.023l334.507,-113.422l0,160.445" style="fill:#354357;" />
+        <clipPath id="_clip5">
+            <path d="M3.712,497.764l0,-47.023l334.507,-113.422l0,160.445" />
+        </clipPath>
+        <g clip-path="url(#_clip5)"><text x="146.588px" y="460.697px" style="font-family:'Avenir-Black', 'Avenir', sans-serif;font-weight:800;font-size:45px;fill:#eaeff3;">SPOCK</text></g>
+        <path d="M3.712,497.764l0,-47.023l334.507,-113.422l0,160.445" style="fill:none;stroke:#eaeff3;stroke-width:5.25px;" />
+        <path d="M944.161,282.657l-0.439,-148.356l88.042,-28.853l-0.439,174.921l-87.164,0" style="fill:#354357;" />
+        <clipPath id="_clip6">
+            <path d="M944.161,282.657l-0.439,-148.356l88.042,-28.853l-0.439,174.921l-87.164,0" />
+        </clipPath>
+        <g clip-path="url(#_clip6)">
+            <g transform="matrix(3.67103e-17,-0.599525,0.648221,3.96921e-17,396.943,367.462)"><text x="221.833px" y="907.115px" style="font-family:'Avenir-Black', 'Avenir', sans-serif;font-weight:800;font-size:29.478px;fill:#eaeff3;">ROOMY</text><text x="169.141px" y="936.593px" style="font-family:'Avenir-Black', 'Avenir', sans-serif;font-weight:800;font-size:29.478px;fill:#eaeff3;">MCROOMF<tspan x="328.999px 350.841px " y="936.593px 936.593px ">AC</tspan>E</text></g>
+        </g>
+        <path d="M944.161,282.657l-0.439,-148.356l88.042,-28.853l-0.439,174.921l-87.164,0" style="fill:none;stroke:#eaeff3;stroke-width:5.25px;" />
+    </g>
+</svg>
