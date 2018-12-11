@@ -9,6 +9,10 @@ h1, nav {
     display:inline-block;
 } */
 
+html {
+    scroll-behavior: smooth;
+  }
+  
 body {
     background: 	#68d9a8;
     position: relative;
