@@ -8,10 +8,26 @@
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="animate.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,600|Roboto">
+    
+    <script async defer src="https://apis.google.com/js/api.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
     type="text/javascript"></script>
+  <!-- <script src="google-cal.js" type="javascript/text"></script>--> 
+
+ <!--   <script src="rooms.js" type="text/javascript"></script> -->
+ <!--   <script src="room-color-mapper.js" type="text/javascript"></script>--> 
+    
+  
 </head>
-<body>
+<body>    
+    
+    <!--Add buttons to initiate auth sequence and sign out-->
+    <button id="authorize_button" style="display: none;">Authorize</button>
+    <button id="signout_button" style="display: none;">Sign Out</button>
+
+    <pre id="content" style="white-space: pre-wrap;"></pre>
+
 
     <header id="header" class="hero-area-2">
             <!--<h1> SchrödingersRoom </h1>-->
@@ -21,7 +37,7 @@
             <div class="overlay"></div>
             <nav class="navbar navbar-expand-md bg-inverse fixed-top scrolling-navbar">
                 <div class="container">
-                  <a href="home.html" class="navbar-brand"><img src="SR_logo.png" alt="SchrödingersRoom" width="50px" height="50px"></a>  
+                  <a href="index.html" class="navbar-brand"><img src="SR_logoGoogle.png" alt="SchrödingersRoom" width="50px" height="50px"></a>  
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="lni-menu"></i>
                   </button>
@@ -194,33 +210,172 @@
 
 </div>
 
+
+
+<script type="text/javascript">
+    // Client ID and API key from the Developer Console
+    var CLIENT_ID = '640400674098-bsei1hk16prohqiuie6lapgs8267b0g0.apps.googleusercontent.com';
+var API_KEY = 'AIzaSyDtVWCmVZVy0lSplznLr4xpgsqKZbJDVJU';
+
+    // Array of API discovery doc URLs for APIs used by the quickstart
+    var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+
+    // Authorization scopes required by the API; multiple scopes can be
+    // included, separated by spaces.
+    var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
+
+    var authorizeButton = document.getElementById('authorize_button');
+    var signoutButton = document.getElementById('signout_button');
+
+    /**
+     *  On load, called to load the auth2 library and API client library.
+     */
+    function handleClientLoad() {
+      gapi.load('client:auth2', initClient);
+    }
+
+    /**
+     *  Initializes the API client library and sets up sign-in state
+     *  listeners.
+     */
+    function initClient() {
+      gapi.client.init({
+        apiKey: API_KEY,
+        clientId: CLIENT_ID,
+        discoveryDocs: DISCOVERY_DOCS,
+        scope: SCOPES
+      }).then(function () {
+        // Listen for sign-in state changes.
+        gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+
+        // Handle the initial sign-in state.
+        updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+        authorizeButton.onclick = handleAuthClick;
+        signoutButton.onclick = handleSignoutClick;
+      }, function(error) {
+        appendPre(JSON.stringify(error, null, 2));
+      });
+    }
+
+    /**
+     *  Called when the signed in status changes, to update the UI
+     *  appropriately. After a sign-in, the API is called.
+     */
+    function updateSigninStatus(isSignedIn) {
+      if (isSignedIn) {
+        authorizeButton.style.display = 'none';
+        signoutButton.style.display = 'block';
+        determineRoomStatus(rooms);
+      } else {
+        authorizeButton.style.display = 'block';
+        signoutButton.style.display = 'none';
+      }
+    }
+
+    /**
+     *  Sign in the user upon button click.
+     */
+    function handleAuthClick(event) {
+      gapi.auth2.getAuthInstance().signIn();
+    }
+
+    /**
+     *  Sign out the user upon button click.
+     */
+    function handleSignoutClick(event) {
+      gapi.auth2.getAuthInstance().signOut();
+    }
+
+    /**
+     * Append a pre element to the body containing the given message
+     * as its text node. Used to display the results of the API call.
+     *
+     * @param {string} message Text to be placed in pre element.
+     */
+    function appendPre(message) {
+      var pre = document.getElementById('content');
+      var textContent = document.createTextNode(message + '\n');
+      pre.appendChild(textContent);
+    }
+
+
+    // A list of code room calendars mapped to room names
+    // TODO: ADD MORE ROOM IDS 
+var rooms = [
+  {
+    "name":'SPOCK',
+    "id":"code.berlin_3337333133353032313436@resource.calendar.google.com"
+  },
+  {
+    "name":'PAPER',
+    "id": "code.berlin_3232363530373936343635@resource.calendar.google.com"
+  },
+  {
+    "name":'ROCK',
+    "id":"code.berlin_3635313131353437333332@resource.calendar.google.com"},
+  {
+    "name":'SCISSORS',
+    "id": "code.berlin_3934313230373536353639@resource.calendar.google.com"},
+  { 
+    "name":'LIZARD',
+    "id": "code.berlin_38323039323339303936@resource.calendar.google.com"},
+  {
+    "name":'MCROOMFACE',
+    "id": "code.berlin_3135303639333334323335@resource.calendar.google.com"},
+  {
+    "name":'MORTY',
+    "id": "code.berlin_31333137303136343636@resource.calendar.google.com"},
+  {
+    "name":'RICK',
+    "id": "code.berlin_3736373335323835363837@resource.calendar.google.com",}
+];
+
+    function determineRoomStatus(rooms) {
+      rooms.forEach(function(room){
+
+          console.log("thing-i-am-looking-at", gapi);
+          gapi.client.calendar.events.list({
+          'calendarId': room.id,
+          'timeMin': (new Date()).toISOString(),
+          'showDeleted': false,
+          'singleEvents': true,
+          'maxResults': 1,
+          'orderBy': 'startTime'
+        }).then(function(response) {
+     
+          // determine if room is booked
+          // write to room.status
+          var events = response.result.items;
+
+          if(events.length > 0) {
+            let start = new Date(events[0].start.dateTime);
+            let end = new Date(events[0].end.dateTime);
+            let now = new Date();
+
+            if (now > start && now < end) {
+              room.status = 'booked';
+            } else {
+              room.status = 'not-booked';
+            }
+          } else {
+            room.status = "not-booked";
+          
+          } 
+        });  
+        console.log(room);
+      } )
+      }
+
+
+
+</script>
+<script async defer src="https://apis.google.com/js/api.js"
+onload="this.onload=function(){};handleClientLoad()"
+onreadystatechange="if (this.readyState === 'complete') this.onload()">
+</script>
 </body>
 
-<script src="rooms.js" type="text/javascript"></script>
-<script> //change room color with booking status
-         roomColor = function(roomState,roomOccupancy){
-        if(roomState == "booked" && roomOccupancy == 'true'){
-            return "#ea4335";
-        }else if((roomState == "booked" && roomOccupancy == "false") ){
-            return "#fbbc05";
-        }else if((roomState == "not-booked" && roomOccupancy == "true")){
-            return "#34a853"; 
-        }else { 
-            return "#4285f4";
-        }
-              
-    }
-        
-        rooms.forEach(function(room){
-        var roomName = room.name;
-        var roomState = room.status;
-        var roomOccupancy = room.occupation;
-        console.log(roomName);
-        $("#meeting-rooms ."+roomName).css("fill", roomColor(roomState,roomOccupancy));
-        
-    }) 
- 
-</script>
+
 <script>// Scroll to specific values
         // scrollTo is the same
         window.scroll({
