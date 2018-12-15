@@ -8,8 +8,8 @@
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="animate.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,600|Roboto">
-    
-    <script async defer src="https://apis.google.com/js/api.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <!--<script async defer src="https://apis.google.com/js/api.js"></script>-->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
     type="text/javascript"></script>
@@ -215,7 +215,7 @@
 <script type="text/javascript">
     // Client ID and API key from the Developer Console
     var CLIENT_ID = '640400674098-bsei1hk16prohqiuie6lapgs8267b0g0.apps.googleusercontent.com';
-var API_KEY = 'AIzaSyDtVWCmVZVy0lSplznLr4xpgsqKZbJDVJU';
+    var API_KEY = 'AIzaSyDtVWCmVZVy0lSplznLr4xpgsqKZbJDVJU';
 
     // Array of API discovery doc URLs for APIs used by the quickstart
     var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
@@ -368,6 +368,33 @@ var rooms = [
         console.log(room);
       } )
       }
+
+
+roomColor = function(roomState/*,roomOccupancy*/){
+if(roomState == "booked" /*&& roomOccupancy == 'true'*/){
+    return "#ea4335";
+//}else if((roomState == "booked" && roomOccupancy == "false") ){
+    //return "#fbbc05";
+}else if((roomState == "not-booked" /*&& roomOccupancy == "true");*/)){
+    return "#34a853"; 
+}else { 
+    return "#4285f4";
+}
+        
+}
+mapRoomColors = function(){
+    var currentRoomStatus = determineRoomStatus (rooms);
+    currentRoomStatus.forEach(function(room){
+        var roomName = room.name;
+        var roomState = room.status;
+        //var roomOccupancy = room.occupation;
+        console.log(roomName);
+        $("#meeting-rooms ."+roomName).css("fill", roomColor(roomState/*,roomOccupancy*/));
+        
+        }) 
+}
+
+
 
 
 
