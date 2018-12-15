@@ -286,21 +286,8 @@ var API_KEY = 'AIzaSyDtVWCmVZVy0lSplznLr4xpgsqKZbJDVJU';
       gapi.auth2.getAuthInstance().signOut();
     }
 
-    /**
-     * Append a pre element to the body containing the given message
-     * as its text node. Used to display the results of the API call.
-     *
-     * @param {string} message Text to be placed in pre element.
-     */
-    function appendPre(message) {
-      var pre = document.getElementById('content');
-      var textContent = document.createTextNode(message + '\n');
-      pre.appendChild(textContent);
-    }
-
-
     // A list of code room calendars mapped to room names
-    // TODO: ADD MORE ROOM IDS 
+
 var rooms = [
   {
     "name":'SPOCK',
@@ -327,7 +314,23 @@ var rooms = [
     "id": "code.berlin_31333137303136343636@resource.calendar.google.com"},
   {
     "name":'RICK',
-    "id": "code.berlin_3736373335323835363837@resource.calendar.google.com",}
+    "id": "code.berlin_3736373335323835363837@resource.calendar.google.com"},
+    {
+        "name" : "6 MINUTES",
+        "id" : "code.berlin_3734323835393132343133@resource.calendar.google.com"
+    },
+    {
+        "name" : "NYMERIA",
+        "id" : "code.berlin_3439393538333934333038@resource.calendar.google.com"
+    },
+    {
+        "name" : "AMY FARRAH FOWLER",
+        "id" : "code.berlin_3338383838333338313738@resource.calendar.google.com"
+    },
+    {
+        "name" : "COGNITO",
+        "id" : "code.berlin_38373433373038363631@resource.calendar.google.com"
+    }
 ];
 
     function determineRoomStatus(rooms) {
