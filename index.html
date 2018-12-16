@@ -94,6 +94,7 @@
                 </g>
                 <path d="M1432.16,340.911l-0.043,-319.897l91.199,-17.302l0,337.199l-91.156,0Z" style="fill:none;stroke:#eaeff3;stroke-width:5.25px;" />            
                 </g>
+                
 
                 <g id="meeting-rooms">
                 <!--morty-->
@@ -151,12 +152,7 @@
                 <rect x="338.219" y="499.825" width="167.253" height="76.915"   /><text x="350.866px" y="549.557px" style="font-family:'Avenir-Black', 'Avenir', sans-serif;font-weight:800;font-size:30px;fill:#eaeff3;">SCISSORS</text>
                 <rect x="338.219" y="499.825" width="167.253" height="76.915" style="fill:none;stroke:#eaeff3;stroke-width:5.25px;stroke-linecap:round;" />
                 </g>
-                <!--lizard-->
-                <g class="lizard">
-                <rect x="672.726" y="499.825" width="73.401" height="76.915"   />
-                <g transform="matrix(6.12323e-17,-1,1,6.12323e-17,-322.567,990.868)"><text x="421.209px" y="1037.94px" style="font-family:'Avenir-Black', 'Avenir', sans-serif;font-weight:800;font-size:16.811px;fill:#eaeff3;">LIZARD</text></g>
-                <rect x="672.726" y="499.825" width="73.401" height="76.915" style="fill:none;stroke:#eaeff3;stroke-width:5.25px;stroke-linecap:round;" />
-                </g>
+                
                 <!--spock-->
                 <g class ="spock">
                 <path d="M3.712,497.764l0,-47.023l334.507,-113.422l0,160.445"   />
@@ -166,6 +162,12 @@
                 <g clip-path="url(#_clip5)"><text x="146.588px" y="460.697px" style="font-family:'Avenir-Black', 'Avenir', sans-serif;font-weight:800;font-size:45px;fill:#eaeff3;">SPOCK</text></g>
                 <path d="M3.712,497.764l0,-47.023l334.507,-113.422l0,160.445" style="fill:none;stroke:#eaeff3;stroke-width:5.25px;" />
                 </g>
+                <!--lizard-->
+                <g class="lizard">
+                        <rect x="672.726" y="499.825" width="73.401" height="76.915"   />
+                        <g transform="matrix(6.12323e-17,-1,1,6.12323e-17,-322.567,990.868)"><text x="421.209px" y="1037.94px" style="font-family:'Avenir-Black', 'Avenir', sans-serif;font-weight:800;font-size:16.811px;fill:#eaeff3;">LIZARD</text></g>
+                        <rect x="672.726" y="499.825" width="73.401" height="76.915" style="fill:none;stroke:#eaeff3;stroke-width:5.25px;stroke-linecap:round;" />
+                        </g>
                 <!--roomy mcroomface-->
                 <g class ="roomy-mcroomface">
                 <path d="M944.161,282.657l-0.439,-148.356l88.042,-28.853l-0.439,174.921l-87.164,0"   />
@@ -304,9 +306,9 @@ var rooms = [
   {
     "name":'scissors',
     "id": "code.berlin_3934313230373536353639@resource.calendar.google.com"},
-  /*{ //lizard seems to be not being used as meeting room anymore 
-    "name":'LIZARD',
-    "id": "code.berlin_38323039323339303936@resource.calendar.google.com"},*/
+  { //lizard seems to be not being used as meeting room anymore (it says workspace now) so should remove it later 
+    "name":'lizard',
+    "id": "code.berlin_3330353336303338363535@resource.calendar.google.com"},
   {
     "name":'roomy-mcroomface',
     "id": "code.berlin_3135303639333334323335@resource.calendar.google.com"},
@@ -365,8 +367,9 @@ function determineRoomStatus(callback) {
             } else {
                 room.status = "not-booked";
             } 
-            allRooms.push(room); //push room into empty array 
-        });
+             //allRooms.push(room); // probably this should go here?? 
+        });  allRooms.push(room); //push room into empty array 
+            //console.log(allRooms)
     });
     return callback(allRooms); //return all the rooms
 }
@@ -375,13 +378,14 @@ mapRoomColors = function(){
     determineRoomStatus(function(allRooms){
         console.log(allRooms)
         allRooms.forEach(function(room){
-        console.log("room",room)
-        console.log(Object.keys(room));
+        console.log("room",room)  // if you check this there's all the key values including the 'status'
+        console.log(Object.keys(room)); //if you check this theres only two key values :o 
         var roomName = room.name;
-        var roomColor = determineRoomColor('booked')
-        console.log(room.status)
-        console.log(roomName)
-        console.log(roomColor)
+        var roomColor = determineRoomColor(room.status) //fake value to test, otherwise should be room.status
+        var roomStatus = room.status;
+        //console.log(room.status)
+        //console.log(roomName)
+        //console.log(roomColor)
         //var roomOccupancy = room.occupation;
         
         $("#meeting-rooms ."+roomName).css("fill", roomColor);    
