@@ -20,7 +20,7 @@
     
   
 </head>
-<body>    
+<body >    
     
     <!--Add buttons to initiate auth sequence and sign out-->
     <button id="authorize_button" style="display: none;">Authorize</button>
@@ -265,7 +265,8 @@
       if (isSignedIn) {
         authorizeButton.style.display = 'none';
         signoutButton.style.display = 'block';
-        determineRoomStatus(rooms);
+        //determineRoomStatus(rooms);
+        mapRoomColors(); 
       } else {
         authorizeButton.style.display = 'block';
         signoutButton.style.display = 'none';
@@ -290,87 +291,107 @@
 
 var rooms = [
   {
-    "name":'SPOCK',
+    "name":'spock',
     "id":"code.berlin_3337333133353032313436@resource.calendar.google.com"
   },
   {
-    "name":'PAPER',
+    "name":'paper',
     "id": "code.berlin_3232363530373936343635@resource.calendar.google.com"
   },
   {
-    "name":'ROCK',
+    "name":'rock',
     "id":"code.berlin_3635313131353437333332@resource.calendar.google.com"},
   {
-    "name":'SCISSORS',
+    "name":'scissors',
     "id": "code.berlin_3934313230373536353639@resource.calendar.google.com"},
-  { 
+  /*{ //lizard seems to be not being used as meeting room anymore 
     "name":'LIZARD',
-    "id": "code.berlin_38323039323339303936@resource.calendar.google.com"},
+    "id": "code.berlin_38323039323339303936@resource.calendar.google.com"},*/
   {
-    "name":'MCROOMFACE',
+    "name":'roomy-mcroomface',
     "id": "code.berlin_3135303639333334323335@resource.calendar.google.com"},
   {
-    "name":'MORTY',
+    "name":'morty',
     "id": "code.berlin_31333137303136343636@resource.calendar.google.com"},
   {
-    "name":'RICK',
-    "id": "code.berlin_3736373335323835363837@resource.calendar.google.com"},
+    "name":'rick',
+    "id": "code.berlin_3736373335323835363837@resource.calendar.google.com"
+},
     {
-        "name" : "6 MINUTES",
+        "name" : "6-minutes",
         "id" : "code.berlin_3734323835393132343133@resource.calendar.google.com"
     },
     {
-        "name" : "NYMERIA",
+        "name" : "nymeria",
         "id" : "code.berlin_3439393538333934333038@resource.calendar.google.com"
     },
     {
-        "name" : "AMY FARRAH FOWLER",
+        "name" : "amy-farrah-fowler",
         "id" : "code.berlin_3338383838333338313738@resource.calendar.google.com"
     },
     {
-        "name" : "COGNITO",
+        "name" : "cognito",
         "id" : "code.berlin_38373433373038363631@resource.calendar.google.com"
     }
 ];
 
-    function determineRoomStatus(rooms) {
-      rooms.forEach(function(room){
-
-          console.log("thing-i-am-looking-at", gapi);
-          gapi.client.calendar.events.list({
-          'calendarId': room.id,
-          'timeMin': (new Date()).toISOString(),
-          'showDeleted': false,
-          'singleEvents': true,
-          'maxResults': 1,
-          'orderBy': 'startTime'
-        }).then(function(response) {
-     
-          // determine if room is booked
-          // write to room.status
-          var events = response.result.items;
-
-          if(events.length > 0) {
-            let start = new Date(events[0].start.dateTime);
-            let end = new Date(events[0].end.dateTime);
-            let now = new Date();
-
-            if (now > start && now < end) {
-              room.status = 'booked';
-            } else {
-              room.status = 'not-booked';
-            }
-          } else {
-            room.status = "not-booked";
+function determineRoomStatus(callback) {
+    var allRooms = []; //making empty array 
+    rooms.forEach(function(room){
           
-          } 
-        });  
-        console.log(room);
-      } )
-      }
+          gapi.client.calendar.events.list({
+            'calendarId': room.id,
+            'timeMin': (new Date()).toISOString(),
+            'showDeleted': false,
+            'singleEvents': true,
+            'maxResults': 1,
+            'orderBy': 'startTime'
+          }).then(function(response) {
+     
+            // determine if room is booked
+            // write to room.status
+            var events = response.result.items;
+
+            if(events.length > 0) {
+                let start = new Date(events[0].start.dateTime);
+                let end = new Date(events[0].end.dateTime);
+                let now = new Date();
+
+                if (now > start && now < end) {
+                room.status = 'booked';
+                } else {
+                room.status = 'not-booked';
+                }
+            } else {
+                room.status = "not-booked";
+            } 
+            allRooms.push(room); //push room into empty array 
+        });
+    });
+    return callback(allRooms); //return all the rooms
+}
+
+mapRoomColors = function(){
+    determineRoomStatus(function(allRooms){
+        console.log(allRooms)
+        allRooms.forEach(function(room){
+        console.log("room",room)
+        console.log(Object.keys(room));
+        var roomName = room.name;
+        var roomColor = determineRoomColor('booked')
+        console.log(room.status)
+        console.log(roomName)
+        console.log(roomColor)
+        //var roomOccupancy = room.occupation;
+        
+        $("#meeting-rooms ."+roomName).css("fill", roomColor);    
+        })
+    })
+}
 
 
-roomColor = function(roomState/*,roomOccupancy*/){
+
+determineRoomColor = function(roomState/*,roomOccupancy*/){
 if(roomState == "booked" /*&& roomOccupancy == 'true'*/){
     return "#ea4335";
 //}else if((roomState == "booked" && roomOccupancy == "false") ){
@@ -382,17 +403,7 @@ if(roomState == "booked" /*&& roomOccupancy == 'true'*/){
 }
         
 }
-mapRoomColors = function(){
-    var currentRoomStatus = determineRoomStatus (rooms);
-    currentRoomStatus.forEach(function(room){
-        var roomName = room.name;
-        var roomState = room.status;
-        //var roomOccupancy = room.occupation;
-        console.log(roomName);
-        $("#meeting-rooms ."+roomName).css("fill", roomColor(roomState/*,roomOccupancy*/));
-        
-        }) 
-}
+
 
 
 
